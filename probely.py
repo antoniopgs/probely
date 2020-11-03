@@ -18,7 +18,7 @@ for severity in severities:
         score += 1
     elif severity == 20: # Medium Severity
         score += 10
-    elif severity == 30: # Severity
+    elif severity == 30: # High Severity
         score += 40
         
 print(f"Generic Risk Score: {score}\n")
