@@ -40,7 +40,7 @@ def report(findings_array, title):
     for finding in findings_array:
         print(f"""ID: {finding['id']}
 URL: {finding['url']}
-LABELS: {finding['labels']}\n""")
+TYPE: {finding['definition']['name']}\n""")
     print()
 
 report(fixed, "fixed")
