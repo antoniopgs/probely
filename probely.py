@@ -25,26 +25,14 @@ print(f"Generic Risk Score: {score}\n")
 
 
 # ----- EXERCISE 2 -----
-fixed = []
-unfixed = []
-new = []
-for finding in data:
-    if "3hbQvcGEmLbW" in finding["scans"]:
-        if "2RnxpEEm2qd5" not in finding["scans"]:
-            fixed.append(finding)
-        elif "2RnxpEEm2qd5" in finding["scans"]:
-            unfixed.append(finding)
-    elif "3hbQvcGEmLbW" not in finding["scans"] and "2RnxpEEm2qd5" in finding["scans"]:
-        new.append(finding)
+print("----- FIXED FINDINGS -----")
+for x in [finding for finding in data if "3hbQvcGEmLbW" in finding["scans"] and "2RnxpEEm2qd5" not in finding["scans"]]:
+    print(f"""ID: {x['id']}\nURL: {x['url']}\nTYPE: {x['definition']['name']}\n""")
 
-def report(findings_array, title):
-    print(f"---------- {title.upper()} FINDINGS ----------")
-    for finding in findings_array:
-        print(f"""ID: {finding['id']}
-URL: {finding['url']}
-TYPE: {finding['definition']['name']}\n""")
-    print()
-
-report(fixed, "fixed")
-report(unfixed, "unfixed")
-report(new, "new")
+print("----- UNFIXED FINDINGS -----")
+for x in [finding for finding in data if "3hbQvcGEmLbW" in finding["scans"] and "2RnxpEEm2qd5" in finding["scans"]]:
+    print(f"""ID: {x['id']}\nURL: {x['url']}\nTYPE: {x['definition']['name']}\n""")
+    
+print("----- NEW FINDINGS -----")
+for x in [finding for finding in data if "3hbQvcGEmLbW" not in finding["scans"] and "2RnxpEEm2qd5" in finding["scans"]]:
+    print(f"""ID: {x['id']}\nURL: {x['url']}\nTYPE: {x['definition']['name']}\n""")
