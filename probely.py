@@ -36,3 +36,4 @@ for x in [finding for finding in data if "3hbQvcGEmLbW" in finding["scans"] and 
 print("----- NEW FINDINGS -----")
 for x in [finding for finding in data if "3hbQvcGEmLbW" not in finding["scans"] and "2RnxpEEm2qd5" in finding["scans"]]:
     print(f"""ID: {x['id']}\nURL: {x['url']}\nTYPE: {x['definition']['name']}\n""")
+    
